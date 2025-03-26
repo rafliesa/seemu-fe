@@ -65,7 +65,7 @@ export const LoginForm = () => {
                   )}
                 />
                 <div className="flex flex-col space-y-2">
-                  <Button type="submit" className="w-full bg-green-300 text-black">
+                  <Button type="submit" className="w-full">
                     Login
                   </Button>
                   <div className="flex items-center">
@@ -73,7 +73,7 @@ export const LoginForm = () => {
                     <span className="px-2 text-gray-500">or</span>
                     <div className="flex-grow border-t border-gray-300"></div>
                   </div>
-                  <Button className="w-full bg-blue-300 text-black" asChild={true}>
+                  <Button className="w-full" asChild={true}>
                     <a href="/register">Register</a>
                   </Button>
                 </div>
