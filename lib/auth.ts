@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export const getAuthToken = () => {
-  const cookieStore = cookies();
+export const getAuthToken = async () => {
+  const cookieStore = await cookies();
   return cookieStore.get("jwt")?.value || "";
 };
