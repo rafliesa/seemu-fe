@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { registrationFormSchema } from "../constant"
 import { registerAction } from "../action"
-import { RadioGroup, RadioGroupItem } from "@radix-ui/react-radio-group"
 
 export const RegistrationForm = () => {
   const form = useForm<z.infer<typeof registrationFormSchema>>({

@@ -34,6 +34,7 @@ export default function PostForm() {
         }
         setTimeout(() => setSuccess(null), 3000);
       } catch (err) {
+        console.error('Error posting:', err);
         setError('Failed to post. Please try again.');
       } finally {
         setIsLoading(false); 
@@ -45,7 +46,7 @@ export default function PostForm() {
     <Card className="w-full">
       <form onSubmit={handleSubmit}>
         <CardHeader>
-          <CardTitle>What's happening?</CardTitle>
+          <CardTitle>What is happening?</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           <textarea

@@ -8,7 +8,6 @@ interface PostCardProps {
   community: string;
   description?: string;
   content: string;
-  actions?: { label: string; onClick?: () => void; variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" }[];
 }
 
 export default function PostCard({
@@ -16,7 +15,6 @@ export default function PostCard({
   description,
   content,
   community,
-  actions = [],
 }: PostCardProps) {
   const [likes, setLikes] = useState(3); 
   const [liked, setLiked] = useState(false); 

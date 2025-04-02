@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Menu, Search, Settings } from "lucide-react";
+import { Home, Inbox, Menu, Search } from "lucide-react";
 import Link from "next/link";
 
 const navItems = [
