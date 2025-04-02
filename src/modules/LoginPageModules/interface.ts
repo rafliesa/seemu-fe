@@ -5,11 +5,8 @@ export interface User {
   email: string
   first_name: string
   last_name: string
-  role: "lecturer" | "student"
 }
 
 export interface LoginResponse {
-  access: string
-  refresh: string
-  user: User
+  jwt: string
 }

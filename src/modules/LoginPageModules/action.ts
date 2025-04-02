@@ -5,11 +5,13 @@ import { loginFormSchema } from "./constant"
 import { cookies } from "next/headers"
 import { LoginResponse } from "./interface"
 import { env } from "@/env.mjs";
+import { redirect } from "next/navigation"
 
 export const loginAction = async (values: z.infer<typeof loginFormSchema>) => {
+  console.log("TEST");
   try {
     const cookieStore = await cookies()
-    const response = await fetch(env.AUTH_API_URL + "/api/v1/auth/login/", {
+    const response = await fetch(env.AUTH_API_URL + "/auth/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,18 +21,20 @@ export const loginAction = async (values: z.infer<typeof loginFormSchema>) => {
     })
 
     if (!response.ok) {
-      throw new Error("Something went wrong.")
+      return { success: false, error: "Something went wrong" };
     }
 
     const data = (await response.json()) as LoginResponse
 
-    if (!data.access || !data.refresh) {
-      throw new Error("Something went wrong.")
+    if (!data.jwt) {
+      return { success: false, error: "Authentication failed" };
     }
 
-    cookieStore.set("osaka-access", data.access)
-    cookieStore.set("osaka-refresh", data.refresh)
+    cookieStore.set("jwt", data.jwt)
+    return { success: true }
+    
   } catch (error) {
     console.log(error)
+    return { success: false, error: "Something went wrong. Please try again." };
   }
 }

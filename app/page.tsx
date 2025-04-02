@@ -1,8 +1,9 @@
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
+import HomePageModule from "@/src/modules/HomePageModules";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <Button variant={"outline"}>asddsa</Button>
+    <HomePageModule/>
   );
 }
