@@ -1,6 +1,10 @@
-import { cookies } from "next/headers";
-
-export const getAuthToken = async () => {
-  const cookieStore = await cookies();
-  return cookieStore.get("jwt")?.value || "";
+export const getAuthToken = () => {
+  const cookieArray = document.cookie.split(';');
+  for (let cookie of cookieArray) {
+    const [name, value] = cookie.trim().split('=');
+    if (name === 'jwt') {
+      return value;
+    }
+  }
+  return "";
 };
